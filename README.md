@@ -1,24 +1,9 @@
-# README
+# Weather73
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application simply allows the user to enter an address and get the 
+temperature for that address.
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Configuration
+You need to set the GOOGLE_MAPS_KEY environment variable with a valid API
+key from Google.

@@ -6,3 +6,13 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import AddressAutocompleteController from "./address_autocomplete_controller"
+application.register("address-autocomplete", AddressAutocompleteController)
+
+window.initAddressAutocomplete = function (...args) {
+  const event = document.createEvent('Events')
+  event.initEvent('google-maps-callback', true, true)
+  event.args = args
+  window.dispatchEvent(event)
+}

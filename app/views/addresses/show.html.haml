@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Formatted address:
+  = @address.formatted_address
+%p
+  %b Postal code:
+  = @address.postal_code
+%p
+  %b Place:
+  = @address.place_id
+%p
+  %b Latitude:
+  = @address.latitude
+%p
+  %b Longitude:
+  = @address.longitude
+
+= link_to 'Edit', edit_address_path(@address)
+\|
+= link_to 'Back', addresses_path

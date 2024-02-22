@@ -1,0 +1,24 @@
+#address{data: {controller: 'address-autocomplete', action: 'google-maps-callback@window->address-autocomplete#initPlaces'}}
+  -# Separate the address field from the form so when the user hits enter to select
+  -# the address, it doesn't submit the form.
+  .field
+    Address
+    = text_field_tag :address, {}, { size: 30, data: { address_autocomplete_target: 'field' } }
+
+  = form_for @address do |f|
+    - if @address.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@address.errors.count, "error")} prohibited this address from being saved:"
+        %ul
+          - @address.errors.full_messages.each do |message|
+            %li= message
+
+
+
+    = f.hidden_field :formatted_address, data: {address_autocomplete_target: 'formattedAddress'}
+    = f.hidden_field :postal_code, data: {address_autocomplete_target: 'postalCode'}
+    = f.hidden_field :place_id, data: {address_autocomplete_target: 'placeId'}
+    = f.hidden_field :latitude, data: {address_autocomplete_target: 'latitude'}
+    = f.hidden_field :longitude, data: {address_autocomplete_target: 'longitude'}
+    .actions
+      = f.submit 'Get Weather', disabled: true, data: {address_autocomplete_target: 'submit'}
