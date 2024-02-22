@@ -1,0 +1,27 @@
+#address.mb-2[address]
+  .container
+    .row
+      .col-sm-7
+        = address.formatted_address
+      .temps.col-sm-5.text-md-end
+        .row
+          / Current temperature column
+          .col-md-5
+            .current-temp
+              72°
+
+          / High, Low, and Feels Like temperatures column
+          .col-md-7
+            .row
+              / High temperature
+              .col-12
+                .high-temp
+                  High: 80°
+              / Low temperature
+              .col-12
+                .low-temp
+                  Low: 60°
+              / Feels like temperature
+              .col-12
+                .feels-like-temp
+                  Feels Like: 75°

@@ -13,6 +13,7 @@ class AddressesController < ApplicationController
   # GET /addresses/new
   def new
     @address = Address.new
+    @known_addresses = Address.all
   end
 
   # GET /addresses/1/edit

@@ -3,3 +3,19 @@
 
 body { padding: 1em 2em; }
 .actions { margin-top: 1em; }
+.temps {
+  .current-temp {
+    align-self: flex-start;
+    font-size: 4rem;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .high-temp,
+  .low-temp,
+  .feels-like-temp {
+    font-size: .8rem;
+    font-weight: normal;
+  }
+
+}
