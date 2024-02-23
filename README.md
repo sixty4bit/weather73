@@ -1,8 +1,15 @@
 # Weather73
 
 This application simply allows the user to enter an address and get the 
-temperature for that address. The weather is cached for 30 minutes and
-then updated by a DelayedJob. 
+temperature for that address.
+
+The address input uses Google Maps Places service to make adding addresses
+easier. 
+
+The weather is cached for 30 minutes and then updated by `UpdateWeatherJob` 
+which runs every minute to check for out of date CurrentWeather records.
+
+The weather data is requested from the OpenWeatherMap service. 
 
 
 # Configuration
