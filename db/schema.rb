@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_23_123637) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_23_134037) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_23_123637) do
     t.datetime "updated_at", null: false
     t.bigint "current_weather_id", null: false
     t.index ["current_weather_id"], name: "index_addresses_on_current_weather_id"
+    t.index ["place_id"], name: "index_addresses_on_place_id", unique: true
   end
 
   create_table "current_weathers", force: :cascade do |t|

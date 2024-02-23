@@ -3,7 +3,7 @@
 one:
   formatted_address: MyString
   postal_code: MyString
-  place_id: MyString
+  place_id: abc1234
   latitude: 9.99
   longitude: 9.99
   current_weather: :one
@@ -11,7 +11,7 @@ one:
 two:
   formatted_address: MyString
   postal_code: MyString
-  place_id: MyString
+  place_id: bcd2345
   latitude: 9.99
   longitude: 9.99
   current_weather: :one

@@ -28,11 +28,11 @@ class AddressesController < ApplicationController
 
     respond_to do |format|
       if @address.save
-
         current_weather.fetch_and_save_weather
         format.html { redirect_to new_address_url, notice: "Address was successfully created." }
         format.json { render :show, status: :created, location: @address }
       else
+        @known_addresses = Address.includes(:current_weather).all
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @address.errors, status: :unprocessable_entity }
       end

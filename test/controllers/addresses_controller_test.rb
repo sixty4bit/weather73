@@ -42,7 +42,7 @@ class AddressesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create address" do
     assert_difference("Address.count") do
-      post addresses_url, params: { address: { formatted_address: @address.formatted_address, latitude: @address.latitude, longitude: @address.longitude, place_id: @address.place_id, postal_code: @address.postal_code } }
+      post addresses_url, params: { address: { formatted_address: @address.formatted_address, latitude: @address.latitude, longitude: @address.longitude, place_id: 'differentplaceid', postal_code: @address.postal_code } }
     end
 
     assert_redirected_to new_address_url
@@ -70,4 +70,12 @@ class AddressesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to addresses_url
   end
+
+  test "should not create address with duplicate place_id" do
+    assert_no_difference('Address.count') do
+      post addresses_url, params: { address: { formatted_address: @address.formatted_address, latitude: @address.latitude, longitude: @address.longitude, place_id: @address.place_id, postal_code: @address.postal_code } }
+    end
+    assert_response :unprocessable_entity
+  end
+
 end
