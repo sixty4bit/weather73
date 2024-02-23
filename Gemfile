@@ -67,7 +67,13 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "webmock", "~> 3.22"
 end
 gem "haml-rails"
 gem "html2haml"
 gem "meta-tags"
+
+gem "delayed_job_active_record", "~> 4.1"
+gem "daemons", "~> 1.4"
+gem "httparty", "~> 0.21.0"
+

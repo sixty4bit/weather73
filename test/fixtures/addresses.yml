@@ -6,6 +6,7 @@ one:
   place_id: MyString
   latitude: 9.99
   longitude: 9.99
+  current_weather: :one
 
 two:
   formatted_address: MyString
@@ -13,3 +14,4 @@ two:
   place_id: MyString
   latitude: 9.99
   longitude: 9.99
+  current_weather: :one

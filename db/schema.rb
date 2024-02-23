@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_22_152728) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_23_123637) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,39 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_152728) do
     t.decimal "longitude", precision: 10, scale: 6, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "current_weather_id", null: false
+    t.index ["current_weather_id"], name: "index_addresses_on_current_weather_id"
   end
 
+  create_table "current_weathers", force: :cascade do |t|
+    t.string "postal_code", null: false
+    t.decimal "temp"
+    t.decimal "feels_like"
+    t.decimal "humidity"
+    t.decimal "wind_speed"
+    t.datetime "expires_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "high_temp"
+    t.decimal "low_temp"
+    t.index ["expires_at"], name: "index_current_weathers_on_expires_at"
+    t.index ["postal_code"], name: "index_current_weathers_on_postal_code", unique: true
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  add_foreign_key "addresses", "current_weathers"
 end

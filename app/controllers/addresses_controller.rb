@@ -13,7 +13,7 @@ class AddressesController < ApplicationController
   # GET /addresses/new
   def new
     @address = Address.new
-    @known_addresses = Address.all
+    @known_addresses = Address.includes(:current_weather).all
   end
 
   # GET /addresses/1/edit
@@ -23,10 +23,14 @@ class AddressesController < ApplicationController
   # POST /addresses or /addresses.json
   def create
     @address = Address.new(address_params)
+    current_weather = CurrentWeather.find_or_create_by(postal_code: @address.postal_code) if @address.postal_code.present?
+    @address.current_weather = current_weather
 
     respond_to do |format|
       if @address.save
-        format.html { redirect_to address_url(@address), notice: "Address was successfully created." }
+
+        current_weather.fetch_and_save_weather
+        format.html { redirect_to new_address_url, notice: "Address was successfully created." }
         format.json { render :show, status: :created, location: @address }
       else
         format.html { render :new, status: :unprocessable_entity }

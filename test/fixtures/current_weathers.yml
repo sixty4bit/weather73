@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  postal_code: 75601
+  temp: 9.99
+  feels_like: 9.99
+  humidity: 9.99
+  wind_speed: 9.99
+  expires_at: 2024-02-22 18:00:19
+
+two:
+  postal_code: 34787
+  temp: 9.99
+  feels_like: 9.99
+  humidity: 9.99
+  wind_speed: 9.99
+  expires_at: 2024-02-22 18:00:19

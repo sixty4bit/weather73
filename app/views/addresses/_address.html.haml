@@ -8,7 +8,7 @@
           / Current temperature column
           .col-md-5
             .current-temp
-              72°
+              ="#{address.current_weather.temp.to_i}°"
 
           / High, Low, and Feels Like temperatures column
           .col-md-7
@@ -18,14 +18,15 @@
                 .high-temp
                   High
                   %i.bi.bi-arrow-up
-                  80°
+                  ="#{address.current_weather.high_temp.to_i}°"
               / Low temperature
               .col-12
                 .low-temp
                   Low
                   %i.bi.bi-arrow-down
-                  60°
+                  ="#{address.current_weather.low_temp.to_i}°"
               / Feels like temperature
               .col-12
                 .feels-like-temp
-                  Feels Like: 75°
+                  Feels Like:
+                  ="#{address.current_weather.feels_like.to_i}°"
