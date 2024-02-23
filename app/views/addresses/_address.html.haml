@@ -30,3 +30,6 @@
                 .feels-like-temp
                   Feels Like:
                   ="#{address.current_weather.feels_like.to_i}°"
+        .expires
+          Refreshes in
+          = distance_of_time_in_words Time.now, address.current_weather.expires_at
